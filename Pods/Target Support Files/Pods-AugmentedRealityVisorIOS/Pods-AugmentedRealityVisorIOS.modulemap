@@ -1,0 +1,6 @@
+framework module Pods_AugmentedRealityVisorIOS {
+  umbrella header "Pods-AugmentedRealityVisorIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

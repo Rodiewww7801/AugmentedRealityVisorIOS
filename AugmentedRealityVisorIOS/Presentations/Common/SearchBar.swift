@@ -1,0 +1,23 @@
+//
+//  SearchBar.swift
+//  VirtualSupervisorIOS
+//
+//  Created by Rodion Hladchenko on 09.02.2022.
+//
+
+import SwiftUI
+
+struct SearchBar: View {
+    @FocusState var focusToggle: Bool
+    @Binding var cityName: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 16))
+            
+            TextField("Search", text: $cityName)
+        }
+    }
+}
+

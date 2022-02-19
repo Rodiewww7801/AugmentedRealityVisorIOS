@@ -1,0 +1,700 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAB222645B23FB0CF4934706 /* Pods_AugmentedRealityVisorIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF3BE7588335FBF78791C2F /* Pods_AugmentedRealityVisorIOS.framework */; };
+		F81BF29027B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BF28F27B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift */; };
+		F81BF29227B3FF0B00216E51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BF29127B3FF0B00216E51 /* ContentView.swift */; };
+		F81BF29427B3FF0C00216E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81BF29327B3FF0C00216E51 /* Assets.xcassets */; };
+		F81BF29727B3FF0C00216E51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81BF29627B3FF0C00216E51 /* Preview Assets.xcassets */; };
+		F81BF2A027B3FFDD00216E51 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BF29F27B3FFDD00216E51 /* SearchBar.swift */; };
+		F88D6D7F27B6DBF00061D489 /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D6D7E27B6DBF00061D489 /* DebugPrint.swift */; };
+		F88D6D8127B6E9080061D489 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D6D8027B6E9080061D489 /* Constants.swift */; };
+		F8BA283827C15D6100719ECA /* GetWeatherStructureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */; };
+		F8BA283E27C1607E00719ECA /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA283D27C1607E00719ECA /* WeatherViewModel.swift */; };
+		F8BA284027C162AE00719ECA /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA283F27C162AE00719ECA /* WeatherView.swift */; };
+		F8BA284427C164E700719ECA /* WeatherViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA284327C164E700719ECA /* WeatherViewFactory.swift */; };
+		F8CDF0B327B6C174006065F2 /* GenericPasswordQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDF0B227B6C174006065F2 /* GenericPasswordQueryable.swift */; };
+		F8CDF0B527B6C6AE006065F2 /* AlamofireLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDF0B427B6C6AE006065F2 /* AlamofireLogger.swift */; };
+		F8E6306E27B5A79D00EC8C87 /* WeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6306D27B5A79D00EC8C87 /* WeatherDTO.swift */; };
+		F8E6307127B5AC0300EC8C87 /* WeatherStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307027B5AC0300EC8C87 /* WeatherStructure.swift */; };
+		F8E6307627B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307527B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift */; };
+		F8E6307A27B5B0C400EC8C87 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307927B5B0C400EC8C87 /* Errors.swift */; };
+		F8E6307D27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307C27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift */; };
+		F8E6308127B5B76000EC8C87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308027B5B76000EC8C87 /* NetworkService.swift */; };
+		F8E6308427B5BB0700EC8C87 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308327B5BB0700EC8C87 /* EndpointProtocol.swift */; };
+		F8E6308627B5BB5300EC8C87 /* WeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308527B5BB5300EC8C87 /* WeatherEndpoint.swift */; };
+		F8E6308927B5BC2000EC8C87 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308827B5BC2000EC8C87 /* APIEndpoints.swift */; };
+		F8E6308D27B5C8BD00EC8C87 /* AuthTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308C27B5C8BD00EC8C87 /* AuthTokenStorage.swift */; };
+		F8E6309027B5C98900EC8C87 /* SecureStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308F27B5C98900EC8C87 /* SecureStorageProtocol.swift */; };
+		F8E6309227B5CC6E00EC8C87 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6309127B5CC6E00EC8C87 /* KeychainStorage.swift */; };
+		F8E6309427B5CD1400EC8C87 /* SecureStorageQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6309327B5CD1400EC8C87 /* SecureStorageQueryable.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		022A4CAF3D74A0D4236ABD5B /* Pods-AugmentedRealityVisorIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityVisorIOS.release.xcconfig"; path = "Target Support Files/Pods-AugmentedRealityVisorIOS/Pods-AugmentedRealityVisorIOS.release.xcconfig"; sourceTree = "<group>"; };
+		07C8E570DC92A2D95E550552 /* Pods-VirtualSupervisorIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualSupervisorIOS.release.xcconfig"; path = "Target Support Files/Pods-VirtualSupervisorIOS/Pods-VirtualSupervisorIOS.release.xcconfig"; sourceTree = "<group>"; };
+		5BF3BE7588335FBF78791C2F /* Pods_AugmentedRealityVisorIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedRealityVisorIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABCFB8B7F690D51193955347 /* Pods-AugmentedRealityVisorIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityVisorIOS.debug.xcconfig"; path = "Target Support Files/Pods-AugmentedRealityVisorIOS/Pods-AugmentedRealityVisorIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D35A7446803270BE2D829841 /* Pods-VirtualSupervisorIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualSupervisorIOS.debug.xcconfig"; path = "Target Support Files/Pods-VirtualSupervisorIOS/Pods-VirtualSupervisorIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F81BF28C27B3FF0B00216E51 /* AugmentedRealityVisorIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedRealityVisorIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81BF28F27B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualSupervisorIOSApp.swift; sourceTree = "<group>"; };
+		F81BF29127B3FF0B00216E51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F81BF29327B3FF0C00216E51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F81BF29627B3FF0C00216E51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F81BF29F27B3FFDD00216E51 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		F88D6D7E27B6DBF00061D489 /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
+		F88D6D8027B6E9080061D489 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureUseCase.swift; sourceTree = "<group>"; };
+		F8BA283D27C1607E00719ECA /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		F8BA283F27C162AE00719ECA /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		F8BA284327C164E700719ECA /* WeatherViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewFactory.swift; sourceTree = "<group>"; };
+		F8CDF0B227B6C174006065F2 /* GenericPasswordQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordQueryable.swift; sourceTree = "<group>"; };
+		F8CDF0B427B6C6AE006065F2 /* AlamofireLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireLogger.swift; sourceTree = "<group>"; };
+		F8E6306D27B5A79D00EC8C87 /* WeatherDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDTO.swift; sourceTree = "<group>"; };
+		F8E6307027B5AC0300EC8C87 /* WeatherStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStructure.swift; sourceTree = "<group>"; };
+		F8E6307527B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureRepositoryProtocol.swift; sourceTree = "<group>"; };
+		F8E6307927B5B0C400EC8C87 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		F8E6307C27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureRepository.swift; sourceTree = "<group>"; };
+		F8E6308027B5B76000EC8C87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F8E6308327B5BB0700EC8C87 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
+		F8E6308527B5BB5300EC8C87 /* WeatherEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEndpoint.swift; sourceTree = "<group>"; };
+		F8E6308827B5BC2000EC8C87 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		F8E6308C27B5C8BD00EC8C87 /* AuthTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenStorage.swift; sourceTree = "<group>"; };
+		F8E6308F27B5C98900EC8C87 /* SecureStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorageProtocol.swift; sourceTree = "<group>"; };
+		F8E6309127B5CC6E00EC8C87 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		F8E6309327B5CD1400EC8C87 /* SecureStorageQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorageQueryable.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F81BF28927B3FF0B00216E51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAB222645B23FB0CF4934706 /* Pods_AugmentedRealityVisorIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		610FA52AF4CC3C3EE16F6B32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BF3BE7588335FBF78791C2F /* Pods_AugmentedRealityVisorIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E22B2D45D9F17D5A79E07A5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D35A7446803270BE2D829841 /* Pods-VirtualSupervisorIOS.debug.xcconfig */,
+				07C8E570DC92A2D95E550552 /* Pods-VirtualSupervisorIOS.release.xcconfig */,
+				ABCFB8B7F690D51193955347 /* Pods-AugmentedRealityVisorIOS.debug.xcconfig */,
+				022A4CAF3D74A0D4236ABD5B /* Pods-AugmentedRealityVisorIOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F81BF28327B3FF0B00216E51 = {
+			isa = PBXGroup;
+			children = (
+				610FA52AF4CC3C3EE16F6B32 /* Frameworks */,
+				E22B2D45D9F17D5A79E07A5F /* Pods */,
+				F81BF28D27B3FF0B00216E51 /* Products */,
+				F81BF28E27B3FF0B00216E51 /* AugmentedRealityVisorIOS */,
+			);
+			sourceTree = "<group>";
+		};
+		F81BF28D27B3FF0B00216E51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F81BF28C27B3FF0B00216E51 /* AugmentedRealityVisorIOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F81BF28E27B3FF0B00216E51 /* AugmentedRealityVisorIOS */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA284127C163CB00719ECA /* Application */,
+				F8E6307E27B5B6FE00EC8C87 /* Infrastructure */,
+				F8E6307727B5B09500EC8C87 /* Common */,
+				F8E6306F27B5ABC400EC8C87 /* Domain */,
+				F8E6306B27B5A72200EC8C87 /* Data */,
+				F81BF29D27B3FF5B00216E51 /* Presentations */,
+				F81BF28F27B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift */,
+				F81BF29127B3FF0B00216E51 /* ContentView.swift */,
+				F81BF29327B3FF0C00216E51 /* Assets.xcassets */,
+				F81BF29527B3FF0C00216E51 /* Preview Content */,
+			);
+			path = AugmentedRealityVisorIOS;
+			sourceTree = "<group>";
+		};
+		F81BF29527B3FF0C00216E51 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F81BF29627B3FF0C00216E51 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F81BF29D27B3FF5B00216E51 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA283927C15F8900719ECA /* WeatherScene */,
+				F81BF29E27B3FFC200216E51 /* Common */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
+		F81BF29E27B3FFC200216E51 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F81BF29F27B3FFDD00216E51 /* SearchBar.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F8BA283627C15D3400719ECA /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F8BA283927C15F8900719ECA /* WeatherScene */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA283A27C15FE500719ECA /* View */,
+				F8BA283C27C1601400719ECA /* ViewModel */,
+			);
+			path = WeatherScene;
+			sourceTree = "<group>";
+		};
+		F8BA283A27C15FE500719ECA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA283F27C162AE00719ECA /* WeatherView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F8BA283C27C1601400719ECA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA283D27C1607E00719ECA /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F8BA284127C163CB00719ECA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA284227C163D700719ECA /* Factories */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F8BA284227C163D700719ECA /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				F8BA284327C164E700719ECA /* WeatherViewFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		F8E6306B27B5A72200EC8C87 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6306C27B5A75E00EC8C87 /* DTO */,
+				F8E6308727B5BBF200EC8C87 /* Network */,
+				F8E6308A27B5C60900EC8C87 /* PersistanseStorages */,
+				F8E6307B27B5B68B00EC8C87 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F8E6306C27B5A75E00EC8C87 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6306D27B5A79D00EC8C87 /* WeatherDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		F8E6306F27B5ABC400EC8C87 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307327B5AD5100EC8C87 /* Interfaces */,
+				F8E6307227B5AD4600EC8C87 /* Model */,
+				F8BA283627C15D3400719ECA /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F8E6307227B5AD4600EC8C87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307027B5AC0300EC8C87 /* WeatherStructure.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8E6307327B5AD5100EC8C87 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307427B5AFE100EC8C87 /* Repositories */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		F8E6307427B5AFE100EC8C87 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307527B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F8E6307727B5B09500EC8C87 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307827B5B0B600EC8C87 /* Helpers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F8E6307827B5B0B600EC8C87 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307927B5B0C400EC8C87 /* Errors.swift */,
+				F88D6D7E27B6DBF00061D489 /* DebugPrint.swift */,
+				F88D6D8027B6E9080061D489 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F8E6307B27B5B68B00EC8C87 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307C27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F8E6307E27B5B6FE00EC8C87 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6307F27B5B72400EC8C87 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		F8E6307F27B5B72400EC8C87 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6308027B5B76000EC8C87 /* NetworkService.swift */,
+				F8CDF0B427B6C6AE006065F2 /* AlamofireLogger.swift */,
+				F8E6308227B5B8B700EC8C87 /* Endpoints */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F8E6308227B5B8B700EC8C87 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6308327B5BB0700EC8C87 /* EndpointProtocol.swift */,
+				F8E6308527B5BB5300EC8C87 /* WeatherEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		F8E6308727B5BBF200EC8C87 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6308827B5BC2000EC8C87 /* APIEndpoints.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F8E6308A27B5C60900EC8C87 /* PersistanseStorages */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6308B27B5C89900EC8C87 /* AuthTokenStorage */,
+				F8E6308E27B5C96000EC8C87 /* SecureStorage */,
+			);
+			path = PersistanseStorages;
+			sourceTree = "<group>";
+		};
+		F8E6308B27B5C89900EC8C87 /* AuthTokenStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6308C27B5C8BD00EC8C87 /* AuthTokenStorage.swift */,
+				F8CDF0B227B6C174006065F2 /* GenericPasswordQueryable.swift */,
+			);
+			path = AuthTokenStorage;
+			sourceTree = "<group>";
+		};
+		F8E6308E27B5C96000EC8C87 /* SecureStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F8E6308F27B5C98900EC8C87 /* SecureStorageProtocol.swift */,
+				F8E6309127B5CC6E00EC8C87 /* KeychainStorage.swift */,
+				F8E6309327B5CD1400EC8C87 /* SecureStorageQueryable.swift */,
+			);
+			path = SecureStorage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F81BF28B27B3FF0B00216E51 /* AugmentedRealityVisorIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81BF29A27B3FF0C00216E51 /* Build configuration list for PBXNativeTarget "AugmentedRealityVisorIOS" */;
+			buildPhases = (
+				41ACC7ED33B0D6BBFD38DE98 /* [CP] Check Pods Manifest.lock */,
+				F81BF28827B3FF0B00216E51 /* Sources */,
+				F81BF28927B3FF0B00216E51 /* Frameworks */,
+				F81BF28A27B3FF0B00216E51 /* Resources */,
+				0571F7B4FEA00F86B4C946AE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AugmentedRealityVisorIOS;
+			productName = VirtualSupervisorIOS;
+			productReference = F81BF28C27B3FF0B00216E51 /* AugmentedRealityVisorIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F81BF28427B3FF0B00216E51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					F81BF28B27B3FF0B00216E51 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = F81BF28727B3FF0B00216E51 /* Build configuration list for PBXProject "AugmentedRealityVisorIOS" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F81BF28327B3FF0B00216E51;
+			productRefGroup = F81BF28D27B3FF0B00216E51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F81BF28B27B3FF0B00216E51 /* AugmentedRealityVisorIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F81BF28A27B3FF0B00216E51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81BF29727B3FF0C00216E51 /* Preview Assets.xcassets in Resources */,
+				F81BF29427B3FF0C00216E51 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0571F7B4FEA00F86B4C946AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AugmentedRealityVisorIOS/Pods-AugmentedRealityVisorIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AugmentedRealityVisorIOS/Pods-AugmentedRealityVisorIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AugmentedRealityVisorIOS/Pods-AugmentedRealityVisorIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41ACC7ED33B0D6BBFD38DE98 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugmentedRealityVisorIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F81BF28827B3FF0B00216E51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8E6308927B5BC2000EC8C87 /* APIEndpoints.swift in Sources */,
+				F8E6309427B5CD1400EC8C87 /* SecureStorageQueryable.swift in Sources */,
+				F8E6307627B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift in Sources */,
+				F8BA283E27C1607E00719ECA /* WeatherViewModel.swift in Sources */,
+				F8E6307D27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift in Sources */,
+				F8E6308427B5BB0700EC8C87 /* EndpointProtocol.swift in Sources */,
+				F8E6309027B5C98900EC8C87 /* SecureStorageProtocol.swift in Sources */,
+				F88D6D8127B6E9080061D489 /* Constants.swift in Sources */,
+				F8BA283827C15D6100719ECA /* GetWeatherStructureUseCase.swift in Sources */,
+				F8E6307127B5AC0300EC8C87 /* WeatherStructure.swift in Sources */,
+				F81BF29227B3FF0B00216E51 /* ContentView.swift in Sources */,
+				F8E6308D27B5C8BD00EC8C87 /* AuthTokenStorage.swift in Sources */,
+				F8BA284027C162AE00719ECA /* WeatherView.swift in Sources */,
+				F8E6307A27B5B0C400EC8C87 /* Errors.swift in Sources */,
+				F8BA284427C164E700719ECA /* WeatherViewFactory.swift in Sources */,
+				F8E6306E27B5A79D00EC8C87 /* WeatherDTO.swift in Sources */,
+				F81BF29027B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift in Sources */,
+				F8CDF0B527B6C6AE006065F2 /* AlamofireLogger.swift in Sources */,
+				F8E6308127B5B76000EC8C87 /* NetworkService.swift in Sources */,
+				F81BF2A027B3FFDD00216E51 /* SearchBar.swift in Sources */,
+				F8E6308627B5BB5300EC8C87 /* WeatherEndpoint.swift in Sources */,
+				F8E6309227B5CC6E00EC8C87 /* KeychainStorage.swift in Sources */,
+				F8CDF0B327B6C174006065F2 /* GenericPasswordQueryable.swift in Sources */,
+				F88D6D7F27B6DBF00061D489 /* DebugPrint.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F81BF29827B3FF0C00216E51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F81BF29927B3FF0C00216E51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F81BF29B27B3FF0C00216E51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABCFB8B7F690D51193955347 /* Pods-AugmentedRealityVisorIOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AugmentedRealityVisorIOS/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9MV89M5M3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rodia.AugmentedRealityVisorIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F81BF29C27B3FF0C00216E51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 022A4CAF3D74A0D4236ABD5B /* Pods-AugmentedRealityVisorIOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AugmentedRealityVisorIOS/Preview Content\"";
+				DEVELOPMENT_TEAM = Z9MV89M5M3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rodia.AugmentedRealityVisorIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F81BF28727B3FF0B00216E51 /* Build configuration list for PBXProject "AugmentedRealityVisorIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81BF29827B3FF0C00216E51 /* Debug */,
+				F81BF29927B3FF0C00216E51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81BF29A27B3FF0C00216E51 /* Build configuration list for PBXNativeTarget "AugmentedRealityVisorIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81BF29B27B3FF0C00216E51 /* Debug */,
+				F81BF29C27B3FF0C00216E51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F81BF28427B3FF0B00216E51 /* Project object */;
+}
