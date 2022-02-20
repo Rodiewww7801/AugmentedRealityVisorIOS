@@ -27,6 +27,19 @@ enum Constants {
     
     //TODO hide api key
     private static func getApiKey() -> String {
-        return "hiden"
+        var nsDictionary: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
+            nsDictionary = NSDictionary(contentsOfFile: path)
+            
+            if let value = nsDictionary?["WeatherApiKey"] as? String {
+                return value
+            } else {
+                print("Config value couldn't be inferred")
+            }
+        } else {
+            print("Config value couldn't be inferred")
+        }
+        return ""
     }
 }

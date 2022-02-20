@@ -50,6 +50,7 @@
 		F81BF29F27B3FFDD00216E51 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F88D6D7E27B6DBF00061D489 /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
 		F88D6D8027B6E9080061D489 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F8A2C7F727C1DB0D009C65D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureUseCase.swift; sourceTree = "<group>"; };
 		F8BA283D27C1607E00719ECA /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		F8BA283F27C162AE00719ECA /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -105,10 +106,10 @@
 		F81BF28327B3FF0B00216E51 = {
 			isa = PBXGroup;
 			children = (
+				F81BF28E27B3FF0B00216E51 /* AugmentedRealityVisorIOS */,
 				610FA52AF4CC3C3EE16F6B32 /* Frameworks */,
 				E22B2D45D9F17D5A79E07A5F /* Pods */,
 				F81BF28D27B3FF0B00216E51 /* Products */,
-				F81BF28E27B3FF0B00216E51 /* AugmentedRealityVisorIOS */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,15 +125,15 @@
 			isa = PBXGroup;
 			children = (
 				F8BA284127C163CB00719ECA /* Application */,
-				F8E6307E27B5B6FE00EC8C87 /* Infrastructure */,
 				F8E6307727B5B09500EC8C87 /* Common */,
-				F8E6306F27B5ABC400EC8C87 /* Domain */,
-				F8E6306B27B5A72200EC8C87 /* Data */,
-				F81BF29D27B3FF5B00216E51 /* Presentations */,
-				F81BF28F27B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift */,
 				F81BF29127B3FF0B00216E51 /* ContentView.swift */,
-				F81BF29327B3FF0C00216E51 /* Assets.xcassets */,
+				F8E6306B27B5A72200EC8C87 /* Data */,
+				F8E6306F27B5ABC400EC8C87 /* Domain */,
+				F8E6307E27B5B6FE00EC8C87 /* Infrastructure */,
+				F81BF29D27B3FF5B00216E51 /* Presentations */,
 				F81BF29527B3FF0C00216E51 /* Preview Content */,
+				F8A2C7F827C1DEEF009C65D1 /* Resources */,
+				F81BF28F27B3FF0B00216E51 /* VirtualSupervisorIOSApp.swift */,
 			);
 			path = AugmentedRealityVisorIOS;
 			sourceTree = "<group>";
@@ -160,6 +161,15 @@
 				F81BF29F27B3FFDD00216E51 /* SearchBar.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		F8A2C7F827C1DEEF009C65D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F81BF29327B3FF0C00216E51 /* Assets.xcassets */,
+				F8A2C7F727C1DB0D009C65D1 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F8BA283627C15D3400719ECA /* UseCases */ = {
@@ -625,6 +635,7 @@
 				DEVELOPMENT_TEAM = Z9MV89M5M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AugmentedRealityVisorIOS/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -655,6 +666,7 @@
 				DEVELOPMENT_TEAM = Z9MV89M5M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AugmentedRealityVisorIOS/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
