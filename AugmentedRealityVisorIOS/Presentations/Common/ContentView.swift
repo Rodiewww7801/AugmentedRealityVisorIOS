@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        weatherView()
+        ZStack {
+            if let view = router.views[router.currentView] {
+                view
+                    .transition(.opacity)
+            }
+        }
     }
 }
 
 extension ContentView {
-    func weatherView() -> some View {
-        let weatherViewFactory = WeatherViewFactory()
-        let weatherView = weatherViewFactory.makeWeatherView()
-        return weatherView
-    }
 }

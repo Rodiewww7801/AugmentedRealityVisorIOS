@@ -18,6 +18,8 @@ struct SearchBar: View {
             
             TextField("Search", text: $cityName)
         }
+        .padding(5)
+        .background(RoundedRectangle(cornerRadius: 25).foregroundColor(.gray.opacity(0.2)))
     }
 }
 
