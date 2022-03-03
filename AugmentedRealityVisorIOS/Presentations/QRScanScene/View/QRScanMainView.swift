@@ -14,7 +14,7 @@ struct QRScanMainView: View {
     
     var body: some View {
         ZStack(alignment: .trailing) {
-            Color.mint
+            Color.red
                 .edgesIgnoringSafeArea(.all)
             
                 Button(action: {

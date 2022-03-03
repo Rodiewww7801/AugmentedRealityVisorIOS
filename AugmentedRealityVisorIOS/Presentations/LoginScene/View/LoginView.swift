@@ -13,13 +13,19 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            Text("ARV")
-                .font(.largeTitle)
+            Image("arvlogo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 250)
             
             TextField("Email", text: $viewModel.credentials.email)
                 .keyboardType(.emailAddress)
             
+            Divider()
+            
             SecureField("Password", text: $viewModel.credentials.password)
+            
+            Divider()
             
             if viewModel.showProgressView {
                 ProgressView()
@@ -46,6 +52,6 @@ struct LoginView: View {
         }.textFieldStyle(.plain)
             .autocapitalization(.none)
             .padding()
-        //.disabled(viewModel.showProgressView)
+        .disabled(viewModel.showProgressView)
     }
 }

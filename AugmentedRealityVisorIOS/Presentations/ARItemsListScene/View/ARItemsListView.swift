@@ -12,7 +12,7 @@ struct ARItemsListView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Color.white.opacity(0.5)
+            Color.white.opacity(0.6)
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
