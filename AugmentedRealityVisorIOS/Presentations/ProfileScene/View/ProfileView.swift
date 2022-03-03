@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel = ProfileViewModel()
-    
+    @EnvironmentObject var router: Router
     private let avatarSize: CGFloat = 100
     
     var body: some View {
@@ -41,7 +41,7 @@ struct ProfileView: View {
                             .font(.system(size: 16))
                         
                         Divider()
-                    }//.padding()
+                    }
                 }
                 
                 Text("Date of birth: \(viewModel.userModel.dateOfBirth.toString(with: "dd.MM.yyyy"))")
@@ -71,12 +71,14 @@ struct ProfileView: View {
                 }
                 
                 Button(action: {
-                    
+                    withAnimation {
+                        router.currentView = .loginView
+                    }
                 }, label: {
-                    Text("Logout")
+                    Text("Log out")
                         .foregroundColor(.red)
                         .font(.system(size: 16))
-                        
+                    
                 }).padding(.top)
                 
                 Spacer()

@@ -14,7 +14,7 @@ struct ContentView: View {
         ZStack {
             if let view = router.views[router.currentView] {
                 view
-                    .transition(.opacity)
+                    .environmentObject(router)
             }
         }
     }

@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct VirtualSupervisorIOSApp: App {
-     var router = Router()
+    var router = Router()
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(router)
+            ContentView()
+                .environmentObject(router)
         }
     }
 }

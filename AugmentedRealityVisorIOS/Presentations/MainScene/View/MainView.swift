@@ -36,14 +36,17 @@ struct MainView: View {
     private var tab: some View {
         ZStack {
             AnalyzerView()
+                .offset(x: tabController.tabBarOption == .analyzer ? 0 : 500, y: 0)
                 .opacity(tabController.tabBarOption == .analyzer ? 1 : 0)
                 .disabled(tabController.tabBarOption != .analyzer)
             
             QRScanMainView()
-                .opacity(tabController.tabBarOption == .qrScan ? 1 : 0)
+                .offset(x: tabController.tabBarOption == .qrScan ? 0 : 500, y: 0)
+                //.opacity(tabController.tabBarOption == .qrScan ? 1 : 0)
                 .disabled(tabController.tabBarOption != .qrScan)
             
             ProfileView()
+                .offset(x: tabController.tabBarOption == .profile ? 0 : 500, y: 0)
                 .opacity(tabController.tabBarOption == .profile ? 1 : 0)
                 .disabled(tabController.tabBarOption != .profile)
         }

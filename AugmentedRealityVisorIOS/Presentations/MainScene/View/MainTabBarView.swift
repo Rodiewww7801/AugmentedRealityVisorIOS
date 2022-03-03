@@ -37,8 +37,10 @@ struct MainTabBarView: View {
                 .foregroundColor(selectedTab == tab ? .black : .gray)
                 .padding(.vertical, 5)
                 .onTapGesture {
+                    withAnimation {
                         selectedTab = tab
                         onTabSelection(tab)
+                    }
                 }
                 
                 Spacer()

@@ -19,7 +19,8 @@ final class Router: ObservableObject {
     let animation: Animation = .spring()
     
     init() {
-        currentView = .main
-        views[.main] = MainView().eraseToAnyView()
+        currentView = .loginView
+        views[.main] = MainView().eraseToAnyView().eraseToAnyView()
+        views[.loginView] = LoginView().transition(.slide).eraseToAnyView()
     }
 }
