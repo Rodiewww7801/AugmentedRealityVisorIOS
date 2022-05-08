@@ -83,7 +83,6 @@ class ARItemObjectStateUIView: UIViewController {
         chartView.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
         chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 280).isActive = true
-        chartView.widthAnchor.constraint(equalToConstant: 400).isActive = true
     }
     
     func formatDataSet(dataSet: LineChartDataSet) {
