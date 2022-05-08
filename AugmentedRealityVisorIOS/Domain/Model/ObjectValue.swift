@@ -7,7 +7,20 @@
 
 import Foundation
 
-struct ObjectValue {
+struct ObjectValue: Identifiable, Comparable {
+    let id = UUID()
     var name: String
     var value: Double
+    var secureLevel: Int
+    var isChange: Bool
+    var time: Date
+    var alarmhihi: Double?
+    var alarmlolo: Double?
+    var description: String?
+    var drawChart: Bool
+    var hexColor: String?
+    
+    static func < (lhs: Self, rhs: Self) -> Bool {
+        return lhs.value < rhs.value
+    }
 }

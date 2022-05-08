@@ -14,11 +14,9 @@ struct ContentView: View {
         ZStack {
             if let view = router.views[router.currentView] {
                 view
+                    .zIndex(0)
                     .environmentObject(router)
             }
         }
     }
-}
-
-extension ContentView {
 }

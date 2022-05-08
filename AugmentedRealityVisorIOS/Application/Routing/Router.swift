@@ -18,6 +18,7 @@ final class Router: ObservableObject {
     @Published var views: [enumRouters: AnyView] = [:]
     let animation: Animation = .spring()
     
+    
     init() {
         currentView = .loginView
         views[.main] = MainView().eraseToAnyView().eraseToAnyView()

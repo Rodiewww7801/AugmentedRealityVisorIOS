@@ -5,5 +5,5 @@ use_frameworks!
 
 target 'AugmentedRealityVisorIOS' do
 	pod 'Alamofire'
-
+	pod 'CocoaMQTT'
 end

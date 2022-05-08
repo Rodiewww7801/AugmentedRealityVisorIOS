@@ -8,12 +8,12 @@
 import Foundation
 
 final class ProfileViewModel: ObservableObject {
-    @Published var userModel: User = User(firstName: "Timur",
-                                          lastName: "Mutsuraev",
+    @Published var userModel: User = User(firstName: "Volodymyr",
+                                          lastName: "Panasuk",
                                           dateOfBirth: Date(),
-                                          companyName: "Chechenskay Respublika",
-                                          stream: "Chechen",
-                                          sequreLvl: 15)
+                                          companyName: "Nitishin Evil Corp",
+                                          stream: "-_-",
+                                          sequreLvl: 666)
 }
 
 struct User {

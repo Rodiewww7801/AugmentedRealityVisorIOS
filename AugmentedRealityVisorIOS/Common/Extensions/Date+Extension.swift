@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Date {
     func toString(with dateFormat: String = "dd.MM.yyyy HH:mm:ss") -> String {

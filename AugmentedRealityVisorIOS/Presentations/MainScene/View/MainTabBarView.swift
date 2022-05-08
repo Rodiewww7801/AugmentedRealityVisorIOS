@@ -26,7 +26,7 @@ struct MainTabBarView: View {
                 
                 VStack {
                     Image(systemName: tab.imageName)
-                        .renderingMode(.template) //todo try change
+                        .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: iconHeight / tab.scale, height: iconHeight)
