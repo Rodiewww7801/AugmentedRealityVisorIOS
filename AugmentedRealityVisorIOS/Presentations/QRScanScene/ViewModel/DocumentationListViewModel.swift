@@ -9,6 +9,7 @@ import Foundation
 
 class DocumentationListViewModel: ObservableObject {
     @Published var documentationList: [DocumentationModel] = []
+    private var firebaseManager = FirebaseManager._shared
     
     func parseJSON(stringJSON: String) {
         if let data = stringJSON.data(using: .utf8),
@@ -17,4 +18,6 @@ class DocumentationListViewModel: ObservableObject {
             documentationList = models
         }
     }
+    
+    
 }
