@@ -10,13 +10,15 @@ import ARKit
 
 struct ARSceneRepresentable: UIViewRepresentable {
     var arSceneViewModel: ARSceneViewModel
+    var documentationListViewModel: DocumentationListViewModel
     private var arView: ARCustomView
     
-    init(arSceneViewModel: ARSceneViewModel) {
+    init(arSceneViewModel: ARSceneViewModel, documentationListViewModel: DocumentationListViewModel) {
         self.arSceneViewModel = arSceneViewModel
+        self.documentationListViewModel = documentationListViewModel
         self.arView = ARCustomView(frame: .zero, arSceneViewModel: arSceneViewModel)
     }
-   
+    
     func makeUIView(context: Context) -> some ARSCNView {
         arView.delegate = context.coordinator
         arView.session.delegate = context.coordinator
@@ -36,14 +38,16 @@ struct ARSceneRepresentable: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, arSceneViewModel: arSceneViewModel)
+        Coordinator(self, arSceneViewModel: arSceneViewModel, documentationListViewModel: documentationListViewModel)
     }
     
     final class Coordinator: NSObject, ARSessionDelegate,  ARSCNViewDelegate {
         var sceneRepresentable: ARSceneRepresentable
         var arSceneViewModel: ARSceneViewModel
+        var documentationListViewModel: DocumentationListViewModel
         
-        init(_ sceneView: ARSceneRepresentable, arSceneViewModel: ARSceneViewModel) {
+        init(_ sceneView: ARSceneRepresentable, arSceneViewModel: ARSceneViewModel, documentationListViewModel: DocumentationListViewModel) {
+            self.documentationListViewModel = documentationListViewModel
             self.sceneRepresentable = sceneView
             self.arSceneViewModel = arSceneViewModel
         }
@@ -60,34 +64,32 @@ struct ARSceneRepresentable: UIViewRepresentable {
         }
         
         public func session(_ session: ARSession, didUpdate frame: ARFrame) {
-//            if arSceneViewModel.isQRProcess {
-//                return
-//            }
-//
-//            arSceneViewModel.isQRProcess = true
-//
-//            let request = VNDetectBarcodesRequest { request, error in
-//                self.requestHandler(request: request, error: error, frame: frame)
-//            }
-//
-//            DispatchQueue.global(qos: .userInitiated).async {
-//                request.symbologies = [.qr]
-//                let imageHandler = VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, options: [:])
-//                try? imageHandler.perform( [request])
-//            }
+            if arSceneViewModel.startQRScan {
+                startDetectingQR(frame)
+            }
         }
         
-        private func startDetectingQR(completionHandler: @escaping (VNRequest, Error?) -> Void) {
-            //Create qr detection request
-            let request = VNDetectBarcodesRequest(completionHandler: { request, error in
-                completionHandler(request, error)
-            })
+        private func startDetectingQR(_ frame: ARFrame) {
+            if arSceneViewModel.isQRProcess {
+                return
+            }
+            
+            arSceneViewModel.isQRProcess = true
+            
+            let request = VNDetectBarcodesRequest { request, error in
+                self.requestHandler(request: request, error: error, frame: frame)
+            }
+            
             request.symbologies = [.qr]
+            let imageHandler = VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, options: [:])
+            try? imageHandler.perform( [request])
         }
         
         private func requestHandler(request: VNRequest, error: Error?, frame: ARFrame) {
             if let result = request.results?.first as? VNBarcodeObservation {
-                guard let _ = result.payloadStringValue else { return }
+                guard let payload = result.payloadStringValue else { return }
+                arSceneViewModel.qrCode = QRCodeModel(id: payload)
+                
                 var rect = result.boundingBox
                 rect = rect.applying(CGAffineTransform(scaleX: 1, y: -1))
                 rect = rect.applying(CGAffineTransform(translationX: 0, y: 1))
@@ -114,6 +116,43 @@ struct ARSceneRepresentable: UIViewRepresentable {
                     self.sceneRepresentable.arView.session.add(anchor: detectDataAnchor)
                     arSceneViewModel.qrCodeAnchor = detectDataAnchor
                 }
+                
+                arSceneViewModel.qrCode?.postion = SCNVector3(x: hitTest.worldTransform.columns.3.x,
+                                                              y: hitTest.worldTransform.columns.3.y,
+                                                              z: hitTest.worldTransform.columns.3.z)
+                
+                if let qrCodeID = arSceneViewModel.qrCode?.id {
+                    arSceneViewModel.getDocumetationsFromFirebase(qrCodeID: qrCodeID)
+                    arSceneViewModel.getARItemsFromFirebase(qrCodeID: qrCodeID) {
+                        self.addARItems()
+                    }
+                }
+                self.arSceneViewModel.startQRScan.toggle()
+            }
+        }
+        
+        private func addARItems() {
+            arSceneViewModel.arItemsViewModel.forEach { item in
+                guard let arItem = item.arItem,
+                      let qrPosition = arSceneViewModel.qrCode?.postion else { return }
+                
+                let box = ARCustomView.createSCNBox(arItem: item)
+                let node = SCNNode(geometry: box)
+                
+                let x = arItem.locationX + qrPosition.x
+                let y = arItem.locationY + qrPosition.y
+                let z = arItem.locationZ + qrPosition.z
+                
+                node.position = SCNVector3(x, y, z)
+                
+                //node look at camera
+                if let currentFrame =  self.sceneRepresentable.arView.session.currentFrame {
+                    node.eulerAngles.x = currentFrame.camera.eulerAngles.x
+                    node.eulerAngles.y = currentFrame.camera.eulerAngles.y
+                }
+                
+                node.name = arItem.id
+                self.sceneRepresentable.arView.scene.rootNode.addChildNode(node)
             }
         }
     }

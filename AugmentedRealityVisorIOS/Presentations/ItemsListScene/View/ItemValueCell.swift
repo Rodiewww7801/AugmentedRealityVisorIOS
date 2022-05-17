@@ -65,7 +65,7 @@ struct ItemValueCell: View {
     
     func appendARItem(objectValue: ObjectValue) {
         let viewModel = ARItemViewModel(topic: self.topic)
-        arSceneViewModel.arItems.append(viewModel)
+        arSceneViewModel.arItemsViewModel.append(viewModel)
         viewModel.createValueView()
     }
 }

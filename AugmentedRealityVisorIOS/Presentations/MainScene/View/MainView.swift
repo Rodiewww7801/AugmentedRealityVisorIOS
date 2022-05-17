@@ -85,7 +85,7 @@ extension MainView {
     func qrScene() -> some View {
         let arSceneFactory = ARSceneFactory()
         let viewModel = arSceneFactory.makeARSceneViewModel()
-        return QRScanMainView(arSceneViewModel: viewModel)
+        return QRScanMainView(arSceneViewModel: viewModel, documentationViewModel: DocumentationListViewModel())
     }
     
     func libraryScene() -> some View {

@@ -10,8 +10,8 @@ import SwiftUI
 
 final class ARSceneFactory {
     //MARK: - View
-    func makeARSceneView(viewModel: ARSceneViewModel) -> ARSceneRepresentable {
-        return ARSceneRepresentable(arSceneViewModel: viewModel)
+    func makeARSceneView(arSceneViewModel: ARSceneViewModel, documentationListViewModel: DocumentationListViewModel) -> ARSceneRepresentable {
+        return ARSceneRepresentable(arSceneViewModel: arSceneViewModel, documentationListViewModel: documentationListViewModel)
     }
     //MARK: - ViewModel
     func makeARSceneViewModel() -> ARSceneViewModel {

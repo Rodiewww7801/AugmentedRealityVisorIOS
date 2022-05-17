@@ -58,7 +58,6 @@
 		F8AAD8B7281DD64E00D6A29E /* ARSceneRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AAD8B6281DD64E00D6A29E /* ARSceneRepresentable.swift */; };
 		F8AB6C7728282C50005B3634 /* ARCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB6C7628282C50005B3634 /* ARCustomView.swift */; };
 		F8AB6C7928283706005B3634 /* ARSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB6C7828283706005B3634 /* ARSceneFactory.swift */; };
-		F8BA283827C15D6100719ECA /* GetWeatherStructureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */; };
 		F8BDDAB3280A065500D1656B /* AnalyzerSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDDAB2280A065500D1656B /* AnalyzerSceneFactory.swift */; };
 		F8C1BC5D27CFD7E100DC49CC /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1BC5C27CFD7E100DC49CC /* TabController.swift */; };
 		F8C1BC5F27CFD83300DC49CC /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1BC5E27CFD83300DC49CC /* Tabs.swift */; };
@@ -72,11 +71,9 @@
 		F8C1BC7D27D051BE00DC49CC /* ObjectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1BC7C27D051BE00DC49CC /* ObjectValue.swift */; };
 		F8CDF0B327B6C174006065F2 /* GenericPasswordQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDF0B227B6C174006065F2 /* GenericPasswordQueryable.swift */; };
 		F8CDF0B527B6C6AE006065F2 /* AlamofireLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDF0B427B6C6AE006065F2 /* AlamofireLogger.swift */; };
-		F8E6306E27B5A79D00EC8C87 /* WeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6306D27B5A79D00EC8C87 /* WeatherDTO.swift */; };
-		F8E6307127B5AC0300EC8C87 /* WeatherStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307027B5AC0300EC8C87 /* WeatherStructure.swift */; };
-		F8E6307627B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307527B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift */; };
+		F8DC6264282BFFAC006D19C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8DC6263282BFFAC006D19C2 /* GoogleService-Info.plist */; };
+		F8DC626C282C7619006D19C2 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC626B282C7619006D19C2 /* FirebaseManager.swift */; };
 		F8E6307A27B5B0C400EC8C87 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307927B5B0C400EC8C87 /* Errors.swift */; };
-		F8E6307D27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6307C27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift */; };
 		F8E6308127B5B76000EC8C87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308027B5B76000EC8C87 /* NetworkService.swift */; };
 		F8E6308427B5BB0700EC8C87 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308327B5BB0700EC8C87 /* EndpointProtocol.swift */; };
 		F8E6308627B5BB5300EC8C87 /* WeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6308527B5BB5300EC8C87 /* WeatherEndpoint.swift */; };
@@ -90,6 +87,18 @@
 		F8E6EA4528212BFC00F91E3C /* ItemStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6EA4428212BFC00F91E3C /* ItemStateCell.swift */; };
 		F8E6EA472821300F00F91E3C /* ItemsListSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6EA462821300F00F91E3C /* ItemsListSceneFactory.swift */; };
 		F8F1903A2823222D00376A82 /* ARItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F190392823222D00376A82 /* ARItemViewModel.swift */; };
+		F8F419B528292D6200BAAE1C /* DocumentationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F419B428292D6200BAAE1C /* DocumentationListView.swift */; };
+		F8F419B72829336200BAAE1C /* DocumentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F419B62829336200BAAE1C /* DocumentationModel.swift */; };
+		F8F419B9282933A800BAAE1C /* QRDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F419B8282933A800BAAE1C /* QRDocumentationDTO.swift */; };
+		F8F419BB2829345600BAAE1C /* DocumentationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F419BA2829345600BAAE1C /* DocumentationListViewModel.swift */; };
+		F8F61236282D8460007644AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F61235282D8460007644AB /* User.swift */; };
+		F8F61239282D9128007644AB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8F61238282D9128007644AB /* FirebaseAuth */; };
+		F8F6123B282D9128007644AB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6123A282D9128007644AB /* FirebaseFirestore */; };
+		F8F6123D282D9128007644AB /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6123C282D9128007644AB /* FirebaseFirestoreCombine-Community */; };
+		F8F6123F282D9128007644AB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6123E282D9128007644AB /* FirebaseStorage */; };
+		F8F61241282D9128007644AB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F8F61240282D9128007644AB /* FirebaseStorageCombine-Community */; };
+		F8F61243282FEB1D007644AB /* QRCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F61242282FEB1D007644AB /* QRCodeModel.swift */; };
+		F8F61245282FEB96007644AB /* ARItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F61244282FEB96007644AB /* ARItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,7 +157,6 @@
 		F8AAD8B6281DD64E00D6A29E /* ARSceneRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneRepresentable.swift; sourceTree = "<group>"; };
 		F8AB6C7628282C50005B3634 /* ARCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCustomView.swift; sourceTree = "<group>"; };
 		F8AB6C7828283706005B3634 /* ARSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneFactory.swift; sourceTree = "<group>"; };
-		F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureUseCase.swift; sourceTree = "<group>"; };
 		F8BDDAB2280A065500D1656B /* AnalyzerSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzerSceneFactory.swift; sourceTree = "<group>"; };
 		F8C1BC5C27CFD7E100DC49CC /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		F8C1BC5E27CFD83300DC49CC /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
@@ -162,11 +170,9 @@
 		F8C1BC7C27D051BE00DC49CC /* ObjectValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectValue.swift; sourceTree = "<group>"; };
 		F8CDF0B227B6C174006065F2 /* GenericPasswordQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordQueryable.swift; sourceTree = "<group>"; };
 		F8CDF0B427B6C6AE006065F2 /* AlamofireLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireLogger.swift; sourceTree = "<group>"; };
-		F8E6306D27B5A79D00EC8C87 /* WeatherDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDTO.swift; sourceTree = "<group>"; };
-		F8E6307027B5AC0300EC8C87 /* WeatherStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStructure.swift; sourceTree = "<group>"; };
-		F8E6307527B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureRepositoryProtocol.swift; sourceTree = "<group>"; };
+		F8DC6263282BFFAC006D19C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8DC626B282C7619006D19C2 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F8E6307927B5B0C400EC8C87 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		F8E6307C27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherStructureRepository.swift; sourceTree = "<group>"; };
 		F8E6308027B5B76000EC8C87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F8E6308327B5BB0700EC8C87 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		F8E6308527B5BB5300EC8C87 /* WeatherEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEndpoint.swift; sourceTree = "<group>"; };
@@ -180,6 +186,13 @@
 		F8E6EA4428212BFC00F91E3C /* ItemStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStateCell.swift; sourceTree = "<group>"; };
 		F8E6EA462821300F00F91E3C /* ItemsListSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListSceneFactory.swift; sourceTree = "<group>"; };
 		F8F190392823222D00376A82 /* ARItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARItemViewModel.swift; sourceTree = "<group>"; };
+		F8F419B428292D6200BAAE1C /* DocumentationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationListView.swift; sourceTree = "<group>"; };
+		F8F419B62829336200BAAE1C /* DocumentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationModel.swift; sourceTree = "<group>"; };
+		F8F419B8282933A800BAAE1C /* QRDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRDocumentationDTO.swift; sourceTree = "<group>"; };
+		F8F419BA2829345600BAAE1C /* DocumentationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationListViewModel.swift; sourceTree = "<group>"; };
+		F8F61235282D8460007644AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F8F61242282FEB1D007644AB /* QRCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeModel.swift; sourceTree = "<group>"; };
+		F8F61244282FEB96007644AB /* ARItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +202,12 @@
 			files = (
 				F890CF7B27D6846800899D39 /* CodeScanner in Frameworks */,
 				F80FB84C28089B8E00B54D3C /* Charts in Frameworks */,
+				F8F61241282D9128007644AB /* FirebaseStorageCombine-Community in Frameworks */,
 				AAB222645B23FB0CF4934706 /* Pods_AugmentedRealityVisorIOS.framework in Frameworks */,
+				F8F6123D282D9128007644AB /* FirebaseFirestoreCombine-Community in Frameworks */,
+				F8F6123F282D9128007644AB /* FirebaseStorage in Frameworks */,
+				F8F6123B282D9128007644AB /* FirebaseFirestore in Frameworks */,
+				F8F61239282D9128007644AB /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,18 +437,11 @@
 		F8A2C7F827C1DEEF009C65D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8DC6263282BFFAC006D19C2 /* GoogleService-Info.plist */,
 				F81BF29327B3FF0C00216E51 /* Assets.xcassets */,
 				F8A2C7F727C1DB0D009C65D1 /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		F8BA283627C15D3400719ECA /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				F8BA283727C15D6100719ECA /* GetWeatherStructureUseCase.swift */,
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 		F8BA284127C163CB00719ECA /* Application */ = {
@@ -475,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				F8C1BC6527D00F1100DC49CC /* QRScanMainView.swift */,
+				F8F419B428292D6200BAAE1C /* DocumentationListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,6 +494,7 @@
 		F8C1BC6427D00EE200DC49CC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F8F419BA2829345600BAAE1C /* DocumentationListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -568,6 +581,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F8DC626A282C760C006D19C2 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				F8DC626B282C7619006D19C2 /* FirebaseManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		F8E6306B27B5A72200EC8C87 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,10 +603,10 @@
 		F8E6306C27B5A75E00EC8C87 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				F8E6306D27B5A79D00EC8C87 /* WeatherDTO.swift */,
 				F8904C2F27EE2A6500E9FC24 /* ObjectDTO.swift */,
 				F8904C3127EE2A9B00E9FC24 /* ObjectValueDTO.swift */,
 				F87E3CC92814B26400935A8C /* ObjectStateDTO.swift */,
+				F8F419B8282933A800BAAE1C /* QRDocumentationDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -595,7 +616,6 @@
 			children = (
 				F8E6307327B5AD5100EC8C87 /* Interfaces */,
 				F8E6307227B5AD4600EC8C87 /* Model */,
-				F8BA283627C15D3400719ECA /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -603,11 +623,14 @@
 		F8E6307227B5AD4600EC8C87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F8E6307027B5AC0300EC8C87 /* WeatherStructure.swift */,
 				F8C1BC7C27D051BE00DC49CC /* ObjectValue.swift */,
 				F87277F227D3F4BE0053C784 /* Object.swift */,
 				F88DEFED27D0C37800DE15E9 /* Credentials.swift */,
 				F87E3CCB2814B43200935A8C /* ObjectState.swift */,
+				F8F419B62829336200BAAE1C /* DocumentationModel.swift */,
+				F8F61235282D8460007644AB /* User.swift */,
+				F8F61242282FEB1D007644AB /* QRCodeModel.swift */,
+				F8F61244282FEB96007644AB /* ARItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -624,7 +647,6 @@
 		F8E6307427B5AFE100EC8C87 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				F8E6307527B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift */,
 				F890CF7E27D6AFC800899D39 /* GetAllObjecetsRepositoryProtocol.swift */,
 			);
 			path = Repositories;
@@ -655,7 +677,6 @@
 		F8E6307B27B5B68B00EC8C87 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				F8E6307C27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift */,
 				F890CF8027D6B07100899D39 /* GetMQTTObjectRepository.swift */,
 			);
 			path = Repositories;
@@ -664,6 +685,7 @@
 		F8E6307E27B5B6FE00EC8C87 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				F8DC626A282C760C006D19C2 /* Firebase */,
 				F8E6307F27B5B72400EC8C87 /* Network */,
 			);
 			path = Infrastructure;
@@ -766,6 +788,11 @@
 			packageProductDependencies = (
 				F890CF7A27D6846800899D39 /* CodeScanner */,
 				F80FB84B28089B8E00B54D3C /* Charts */,
+				F8F61238282D9128007644AB /* FirebaseAuth */,
+				F8F6123A282D9128007644AB /* FirebaseFirestore */,
+				F8F6123C282D9128007644AB /* FirebaseFirestoreCombine-Community */,
+				F8F6123E282D9128007644AB /* FirebaseStorage */,
+				F8F61240282D9128007644AB /* FirebaseStorageCombine-Community */,
 			);
 			productName = VirtualSupervisorIOS;
 			productReference = F81BF28C27B3FF0B00216E51 /* AugmentedRealityVisorIOS.app */;
@@ -798,6 +825,7 @@
 			packageReferences = (
 				F890CF7927D6846800899D39 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				F80FB84A28089B8E00B54D3C /* XCRemoteSwiftPackageReference "Charts" */,
+				F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F81BF28D27B3FF0B00216E51 /* Products */;
 			projectDirPath = "";
@@ -815,6 +843,7 @@
 			files = (
 				F81BF29727B3FF0C00216E51 /* Preview Assets.xcassets in Resources */,
 				F81BF29427B3FF0C00216E51 /* Assets.xcassets in Resources */,
+				F8DC6264282BFFAC006D19C2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,31 +905,35 @@
 				F8974ACF27C666FF000674DC /* MainView.swift in Sources */,
 				F8AB6C7928283706005B3634 /* ARSceneFactory.swift in Sources */,
 				F87E3CD02814D0FF00935A8C /* EditObjectStateView.swift in Sources */,
+				F8F419B9282933A800BAAE1C /* QRDocumentationDTO.swift in Sources */,
 				F8C1BC5F27CFD83300DC49CC /* Tabs.swift in Sources */,
 				F8E6309427B5CD1400EC8C87 /* SecureStorageQueryable.swift in Sources */,
 				F82D06CE2813705600956B1C /* AnalyzerValuesCell.swift in Sources */,
 				F8974ACA27C662B3000674DC /* Router.swift in Sources */,
 				F8E6EA4528212BFC00F91E3C /* ItemStateCell.swift in Sources */,
-				F8E6307627B5B00F00EC8C87 /* GetWeatherStructureRepositoryProtocol.swift in Sources */,
-				F8E6307D27B5B6BD00EC8C87 /* GetWeatherStructureRepository.swift in Sources */,
 				F87277F927D4F0A40053C784 /* MQTTState.swift in Sources */,
 				F87277F527D4DBAF0053C784 /* MQTTManager.swift in Sources */,
+				F8F61236282D8460007644AB /* User.swift in Sources */,
 				F8E6308427B5BB0700EC8C87 /* EndpointProtocol.swift in Sources */,
 				F8E6309027B5C98900EC8C87 /* SecureStorageProtocol.swift in Sources */,
 				F8904C3527EE352700E9FC24 /* LibraryViewModel.swift in Sources */,
 				F890CF8127D6B07100899D39 /* GetMQTTObjectRepository.swift in Sources */,
 				F80FB850280989CA00B54D3C /* DateAxisValueFormatter.swift in Sources */,
 				F84B86B72822BFD4000C87E0 /* ARItemObjectValueView.swift in Sources */,
+				F8DC626C282C7619006D19C2 /* FirebaseManager.swift in Sources */,
 				F8904C3227EE2A9B00E9FC24 /* ObjectValueDTO.swift in Sources */,
 				F8126A832814609E00652000 /* NotificationDelegate.swift in Sources */,
+				F8F61243282FEB1D007644AB /* QRCodeModel.swift in Sources */,
+				F8F61245282FEB96007644AB /* ARItemModel.swift in Sources */,
 				F8C1BC7D27D051BE00DC49CC /* ObjectValue.swift in Sources */,
 				F88D6D8127B6E9080061D489 /* Constants.swift in Sources */,
 				F8BDDAB3280A065500D1656B /* AnalyzerSceneFactory.swift in Sources */,
-				F8BA283827C15D6100719ECA /* GetWeatherStructureUseCase.swift in Sources */,
+				F8F419BB2829345600BAAE1C /* DocumentationListViewModel.swift in Sources */,
+				F8F419B528292D6200BAAE1C /* DocumentationListView.swift in Sources */,
 				F8C1BC7427D03B7E00DC49CC /* Date+Extension.swift in Sources */,
 				F80FB84E28089FBF00B54D3C /* LineChartViewRepresentable.swift in Sources */,
 				F8C1BC6127CFF88F00DC49CC /* MainTabBarView.swift in Sources */,
-				F8E6307127B5AC0300EC8C87 /* WeatherStructure.swift in Sources */,
+				F8F419B72829336200BAAE1C /* DocumentationModel.swift in Sources */,
 				F81BF29227B3FF0B00216E51 /* ContentView.swift in Sources */,
 				F8904C2D27EE0D4C00E9FC24 /* MQTTAppState.swift in Sources */,
 				F8E6308D27B5C8BD00EC8C87 /* AuthTokenStorage.swift in Sources */,
@@ -911,7 +944,6 @@
 				F82D06CC2813251200956B1C /* RounderRectangle.swift in Sources */,
 				F8E6307A27B5B0C400EC8C87 /* Errors.swift in Sources */,
 				F87277F327D3F4BE0053C784 /* Object.swift in Sources */,
-				F8E6306E27B5A79D00EC8C87 /* WeatherDTO.swift in Sources */,
 				F890CF7D27D6AD3A00899D39 /* AnalyzerViewModel.swift in Sources */,
 				F82D06CA2812FD8500956B1C /* BottomSheetView.swift in Sources */,
 				F8904C3827EF1D1200E9FC24 /* ConvertModelProtocol.swift in Sources */,
@@ -1171,6 +1203,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1183,6 +1223,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F890CF7927D6846800899D39 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		F8F61238282D9128007644AB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F8F6123A282D9128007644AB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F8F6123C282D9128007644AB /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		F8F6123E282D9128007644AB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		F8F61240282D9128007644AB /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F61237282D9128007644AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

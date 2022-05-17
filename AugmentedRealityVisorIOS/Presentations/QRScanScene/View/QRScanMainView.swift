@@ -13,18 +13,27 @@ struct QRScanMainView: View {
     private let documentationButtonSize: CGFloat = 40
     private let chevronButtonSize: CGFloat = 35
     @State private var isMenuOpen: Bool = false
+    @State private var documentationViewIsOpen: Bool = false
     @StateObject var arSceneViewModel: ARSceneViewModel
-    
-    @State var pressed: Bool = false
-    @State var node = SCNNode()
+    @StateObject var documentationViewModel: DocumentationListViewModel
     
     var body: some View {
         ZStack(alignment: .trailing) {
             arScene()
+            
+            if arSceneViewModel.startQRScan {
+                Image(systemName: "qrcode.viewfinder")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .font(Font.title.weight(.ultraLight))
+                    .frame(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.width * 0.6, alignment: .center)
+                    .foregroundColor(.white.opacity(0.6))
+            }
                 
             Button(action: {
                 withAnimation {
                     isMenuOpen.toggle()
+                    self.arSceneViewModel.startQRScan = false
                 }
             }, label: {
                 ZStack {
@@ -44,7 +53,9 @@ struct QRScanMainView: View {
             
             VStack {
                 Button(action: {
-                    
+                    withAnimation {
+                        arSceneViewModel.startQRScan.toggle()
+                    }
                 }, label: {
                     ZStack {
                         Circle()
@@ -58,7 +69,8 @@ struct QRScanMainView: View {
                 }).buttonStyle(.plain)
                 
                 Button(action: {
-                    
+                    self.documentationViewIsOpen.toggle()
+                    self.arSceneViewModel.startQRScan = false
                 }, label: {
                     ZStack {
                         Circle()
@@ -75,14 +87,16 @@ struct QRScanMainView: View {
             
         }.sheet(isPresented: $isMenuOpen) {
             itemsListView()
-        }
+        }.sheet(isPresented: $documentationViewIsOpen, content: {
+            DocumentationListView(documentations: arSceneViewModel.documentations)
+        })
     }
 }
 
 extension QRScanMainView {
     func arScene() -> ARSceneRepresentable {
         let arSceneFactory = ARSceneFactory()
-        let arSceneView = arSceneFactory.makeARSceneView(viewModel: arSceneViewModel)
+        let arSceneView = arSceneFactory.makeARSceneView(arSceneViewModel: arSceneViewModel, documentationListViewModel: documentationViewModel)
         return arSceneView
     }
     

@@ -51,8 +51,8 @@ class ARCustomView: ARSCNView {
         let location = recognizer.location(in: self)
         
         if let hitTest = self.hitTest(location, types: .featurePoint).first {
-            if let lastItem = arSceneViewModel.arItems.last {
-                let box = createSCNBox(arItem: lastItem)
+            if let lastItem = arSceneViewModel.arItemsViewModel.last {
+                let box = ARCustomView.createSCNBox(arItem: lastItem)
                 let node = SCNNode(geometry: box)
                 node.transform = SCNMatrix4(hitTest.worldTransform)
                 
@@ -62,9 +62,12 @@ class ARCustomView: ARSCNView {
                     node.eulerAngles.y = currentFrame.camera.eulerAngles.y
                 }
                 
-                node.name = lastItem.topic
-                lastItem.node = node
+                node.name = UUID().uuidString
                 self.scene.rootNode.addChildNode(node)
+                
+                lastItem.arItem = ARItemModel(id: node.name ?? UUID().uuidString, locationX: node.position.x, locationY: node.position.y, locationZ: node.position.z, topic: lastItem.topic)
+                
+                arSceneViewModel.saveARItemToFirebase(node: node, topic: lastItem.topic)
             }
         }
     }
@@ -75,9 +78,10 @@ class ARCustomView: ARSCNView {
         
         if let hitTest = self.hitTest(location, options: [:]).first {
             let selectedNode = hitTest.node
-            arSceneViewModel.arItems.removeAll(where: {
-                $0.node?.name?.lowercased() == selectedNode.name?.lowercased()
+            arSceneViewModel.arItemsViewModel.removeAll(where: {
+                $0.arItem?.id == selectedNode.name
             })
+            arSceneViewModel.removeARItemFromFirebase(node: selectedNode)
             selectedNode.removeFromParentNode()
             notifyGenerator.notificationOccurred(.success)
         }
@@ -96,6 +100,9 @@ class ARCustomView: ARSCNView {
             if let panStartZ = self.panStartZ {
                 let worldPosition = self.unprojectPoint(SCNVector3(location.x, location.y, panStartZ))
                 self.draggingNode?.worldPosition = worldPosition
+                if let draggingNode = draggingNode {
+                    arSceneViewModel.updateARItemToFirebase(node: draggingNode)
+                }
             }
         case .ended:
             self.panStartZ = nil
@@ -119,7 +126,7 @@ class ARCustomView: ARSCNView {
         }
     }
     
-    private func createSCNBox(arItem: ARItemViewModel) -> SCNBox {
+    static func createSCNBox(arItem: ARItemViewModel) -> SCNBox {
         let box: SCNBox
         //create box with chart or value view
         if arItem.objectValue?.drawChart ??

@@ -44,7 +44,7 @@ struct ProfileView: View {
                     }
                 }
                 
-                Text("Date of birth: \(viewModel.userModel.dateOfBirth.toString(with: "dd.MM.yyyy"))")
+                Text("Date of birth: \(viewModel.userModel.dateOfBirth)")
                     .font(.system(size: 16))
                 
                 Divider()
@@ -63,7 +63,7 @@ struct ProfileView: View {
                     Divider()
                 }
                 
-                if let secureLvl = viewModel.userModel.sequreLvl {
+                if let secureLvl = viewModel.userModel.securityLevel {
                     Text("Secure level: \(secureLvl)")
                         .font(.system(size: 16))
                     

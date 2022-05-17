@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct VirtualSupervisorIOSApp: App {
     var router = Router()
-    //var mqttManager
     
     var body: some Scene {
         WindowGroup {

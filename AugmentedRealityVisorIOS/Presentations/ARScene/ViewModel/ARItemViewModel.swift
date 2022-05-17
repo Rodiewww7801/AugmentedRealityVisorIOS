@@ -13,7 +13,6 @@ import UIKit
 import SwiftUI
 
 class ARItemViewModel: ObservableObject {
-    @Published var node: SCNNode?
     @Published var objectState: ObjectState?
     @Published var objectValue: ObjectValue?
     @Published var entries: [ChartDataEntry] = []
@@ -21,6 +20,7 @@ class ARItemViewModel: ObservableObject {
     @Published var uiView: UIView?
     @Published var controller: ARItemObjectValueUIView?
     let topic: String
+    var arItem: ARItemModel? = nil
     private let getMQTTValuesObjectsRepository: GetMQTTObjectRepository<ObjectValueDTO, Never>
     private let getMQTTStatesObjectsRepository: GetMQTTObjectRepository<ObjectStateDTO, Never>
     private var subscriptions = Set<AnyCancellable>()
@@ -29,8 +29,6 @@ class ARItemViewModel: ObservableObject {
         self.topic = topic
         self.getMQTTValuesObjectsRepository = GetMQTTObjectRepository<ObjectValueDTO, Never>(mqttManager: MQTTManager.shared())
         self.getMQTTStatesObjectsRepository = GetMQTTObjectRepository<ObjectStateDTO, Never>(mqttManager: MQTTManager.shared())
-        //self.createStateView()
-        //self.createValueView()
         
         self.getMQTTValuesObjectsRepository.subscribeTopic { [unowned self] result in
             switch result {

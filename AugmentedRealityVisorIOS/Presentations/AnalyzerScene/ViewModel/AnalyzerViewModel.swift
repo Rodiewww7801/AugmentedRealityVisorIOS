@@ -22,7 +22,6 @@ final class AnalyzerViewModel: ObservableObject {
     
     init(getMQTTObjectsRepository: GetMQTTObjectRepository<ObjectValueDTO, Never>,
          getMQTTStateObjectsRepository: GetMQTTObjectRepository<ObjectStateDTO, Never>) {
-        print("[AnalyzerViewModel] init")
         self.getMQTTValuesObjectsRepository = getMQTTObjectsRepository
         self.getMQTTStateObjectsRepository = getMQTTStateObjectsRepository
         
@@ -47,7 +46,6 @@ final class AnalyzerViewModel: ObservableObject {
     }
     
     deinit {
-        print("[AnalyzerViewModel] deinit")
         entries = []
         objectValues = [:]
         stateValues = [:]

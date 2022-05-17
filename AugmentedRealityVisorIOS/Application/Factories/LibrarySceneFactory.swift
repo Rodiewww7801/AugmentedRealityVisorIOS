@@ -10,7 +10,6 @@ import SwiftUI
 
 final class LibrarySceneFactory {
     private let mqttManager = MQTTManager.shared()
-    private let topic: String = "rodie/objectsTest1"
     
     //MARK: - Repositories
     private func makeGetMQTTObjectRepository() -> GetMQTTObjectRepository<ObjectDTO, Never> {
