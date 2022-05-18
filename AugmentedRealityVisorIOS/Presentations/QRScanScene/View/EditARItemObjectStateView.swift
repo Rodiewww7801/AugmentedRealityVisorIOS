@@ -15,59 +15,63 @@ struct EditARItemObjectStateView: View {
     @State var objectState: Bool = false
     @Binding var viewIsShown: Bool
     var onDeleteAction: (()->Void)?
+    @State var securityCheker: Bool = false
+    var firebaseManager: FirebaseManager = FirebaseManager._shared
     
     var body: some View {
-        VStack {
-            Text("Enter value")
-                .font(.system(size: 16))
-                .foregroundColor(.black)
-                .padding(.top)
-            
-            HStack(alignment: .bottom) {
-                Text("\(selectedValueObject.name):")
-                
-                Picker("", selection: $objectState) {
-                    ForEach(pickerStates, id: \.self) { state in
-                        Text(state.description)
-                    }
-                }.pickerStyle(.segmented)
-                    .padding(.horizontal)
-            }
-            
-            if let description = selectedValueObject.description {
-                HStack {
-                    Text("\(description)")
-                        .font(.system(size: 12))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.leading)
-                        .padding(.vertical, 5)
-                    Spacer()
-                }
-            }
-            
-            Button(action: {
-                //guard !doubleValueIsNotValid else { return }
-                guard let stringJSON = jsonEncoding(selectedValueObject) else {
-                    self.viewIsShown.toggle()
-                    //self.presentationMode.wrappedValue.dismiss()
-                    return
-                }
-                
-                withAnimation {
-                    mqttManager.publish(topic: selectedTopic + "/set", with: stringJSON)
-                    self.viewIsShown.toggle()
-                    //self.presentationMode.wrappedValue.dismiss()
-                }
-            }, label: {
-                Text("Save")
+            VStack {
+                if securityCheker, selectedValueObject.isChange {
+                Text("Enter value")
                     .font(.system(size: 16))
-                    .padding()
                     .foregroundColor(.black)
-                    .frame(width: 150, height: 40)
-                    .overlay(RoundedRectangle(cornerRadius: 23)
-                                .stroke(Color.black , lineWidth: 1))
-            })
-            .padding()
+                    .padding(.top)
+                
+                HStack(alignment: .bottom) {
+                    Text("\(selectedValueObject.name):")
+                    
+                    Picker("", selection: $objectState) {
+                        ForEach(pickerStates, id: \.self) { state in
+                            Text(state.description)
+                        }
+                    }.pickerStyle(.segmented)
+                        .padding(.horizontal)
+                }
+                
+                if let description = selectedValueObject.description {
+                    HStack {
+                        Text("\(description)")
+                            .font(.system(size: 12))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.leading)
+                            .padding(.vertical, 5)
+                        Spacer()
+                    }
+                }
+                
+                Button(action: {
+                    //guard !doubleValueIsNotValid else { return }
+                    guard let stringJSON = jsonEncoding(selectedValueObject) else {
+                        self.viewIsShown.toggle()
+                        //self.presentationMode.wrappedValue.dismiss()
+                        return
+                    }
+                    
+                    withAnimation {
+                        mqttManager.publish(topic: selectedTopic + "/set", with: stringJSON)
+                        self.viewIsShown.toggle()
+                        //self.presentationMode.wrappedValue.dismiss()
+                    }
+                }, label: {
+                    Text("Save")
+                        .font(.system(size: 16))
+                        .padding()
+                        .foregroundColor(.black)
+                        .frame(width: 150, height: 40)
+                        .overlay(RoundedRectangle(cornerRadius: 23)
+                            .stroke(Color.black , lineWidth: 1))
+                })
+                .padding(.top)
+            }
             
             Button(action: {
                 onDeleteAction?()
@@ -83,10 +87,13 @@ struct EditARItemObjectStateView: View {
                     .background(RoundedRectangle(cornerRadius: 23)
                         .foregroundColor(.red))
             })
-                .padding(.bottom)
+            .padding()
         }.padding(.horizontal)
             .onAppear {
                 self.objectState = selectedValueObject.state
+                firebaseManager.getUser(handler: { model in
+                    securityCheker = model.securityLevel >= selectedValueObject.secureLevel
+                })
             }
     }
     

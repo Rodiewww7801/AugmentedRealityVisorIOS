@@ -111,6 +111,7 @@ struct ARSceneRepresentable: UIViewRepresentable {
                 if let detectDataAnchor = arSceneViewModel.qrCodeAnchor,
                    let node = self.sceneRepresentable.arView.node(for: detectDataAnchor) {
                     node.transform = SCNMatrix4(hitTest.worldTransform)
+                    self.clearAllNodes()
                 } else {
                     let detectDataAnchor = ARAnchor(name: "QRAnchor", transform: hitTest.worldTransform)
                     self.sceneRepresentable.arView.session.add(anchor: detectDataAnchor)
@@ -129,6 +130,12 @@ struct ARSceneRepresentable: UIViewRepresentable {
                 }
                 self.arSceneViewModel.startQRScan.toggle()
             }
+        }
+        
+        private func clearAllNodes() {
+            sceneRepresentable.arView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                    node.removeFromParentNode()
+                }
         }
         
         private func addARItems() {

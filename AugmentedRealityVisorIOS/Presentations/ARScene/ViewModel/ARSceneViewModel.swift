@@ -66,7 +66,12 @@ class ARSceneViewModel: ObservableObject {
                 arItems?.forEach { arItem in
                     let viewModel = ARItemViewModel(topic: arItem.topic)
                     viewModel.arItem = arItem
-                    viewModel.createValueView()
+                    if viewModel.objectValue != nil {
+                        viewModel.createValueView()
+                    } else if viewModel.objectState != nil {
+                        viewModel.createStateView()
+                    }
+                   
                     self.arItemsViewModel.append(viewModel)
                 }
                 

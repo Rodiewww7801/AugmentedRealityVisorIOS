@@ -37,12 +37,15 @@ struct BottomSheetView<Content: View>: View {
                     
                     VStack {
                         content
+                            .frame(maxWidth: .infinity)
                     }
                     .background(Color.white)
                     .cornerRadius(20, corners: [.topLeft, .topRight])
 
                 }//.offset(y: self.showBottomSheetView ? 0 : 300)
+                
                 .animation(.easeInOut)
+                
         }.shadow(color: .black.opacity(0.15), radius: 20)
                 .edgesIgnoringSafeArea(.all)
     }

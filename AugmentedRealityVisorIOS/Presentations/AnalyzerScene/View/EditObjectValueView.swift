@@ -9,92 +9,98 @@ import SwiftUI
 import Alamofire
 
 struct EditObjectValueView: View {
-     var selectedValueObject: ObjectValue
-     var selectedTopic: String
-     var mqttManager: MQTTManager = MQTTManager.shared()
+    var selectedValueObject: ObjectValue
+    var selectedTopic: String
+    var mqttManager: MQTTManager = MQTTManager.shared()
     @State var doubleValueIsNotValid: Bool = false
     @State var stringValue: String = ""
     @State var doubleValue: Double = 0.0
     @Binding var viewIsShown: Bool
+    @State var securityCheker: Bool = false
+    var firebaseManager: FirebaseManager = FirebaseManager._shared
     
     var body: some View {
         VStack {
-            Text("Enter value")
-                .font(.system(size: 16))
-                .foregroundColor(.black)
-                .padding(.top)
-            
-            HStack {
-                Text("\(selectedValueObject.name):")
+            if securityCheker {
+                Text("Enter value")
+                    .font(.system(size: 16))
+                    .foregroundColor(.black)
+                    .padding(.top)
                 
                 HStack {
-                    TextField("\(selectedValueObject.value)", text: Binding(get: {
-                        stringValue
-                    }, set: {
-                        stringValue = $0
-                        doubleValue =  alarmValidation( Double($0) ?? 0)
-                    }))
+                    Text("\(selectedValueObject.name):")
+                    
+                    HStack {
+                        TextField("\(selectedValueObject.value)", text: Binding(get: {
+                            stringValue
+                        }, set: {
+                            stringValue = $0
+                            doubleValue =  alarmValidation( Double($0) ?? 0)
+                        }))
                         .keyboardType(.decimalPad)
                         .font(.system(size: 16, weight: .regular))
                         .padding(.leading)
                         .padding(.vertical, 5)
-                }.background(RoundedRectangle(cornerRadius: 23).foregroundColor(.gray.opacity(0.1)))
-            }
-            
-            if let description = selectedValueObject.description {
-                HStack {
-                    Text("\(description)")
-                        .font(.system(size: 12))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.leading)
-                        .padding(.vertical, 5)
-                    Spacer()
+                    }.background(RoundedRectangle(cornerRadius: 23).foregroundColor(.gray.opacity(0.1)))
                 }
-            }
-            
-            if doubleValueIsNotValid {
-                VStack(alignment: .leading) {
-                    Text("Value not valide")
-                    
-                    if let hihi = selectedValueObject.alarmhihi {
-                        Text("HiHi: \(hihi)")
-                    }
-                    
-                    if let lolo = selectedValueObject.alarmlolo {
-                        Text("LoLo: \(lolo)")
-                    }
-                }.font(.system(size: 16))
-                    .foregroundColor(.red)
-                    .padding()
                 
-            }
-            
-            Button(action: {
-                guard !doubleValueIsNotValid else { return }
-                guard let stringJSON = jsonEncoding(selectedValueObject) else {
-                            self.viewIsShown.toggle()
-                            return
+                if let description = selectedValueObject.description {
+                    HStack {
+                        Text("\(description)")
+                            .font(.system(size: 12))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.leading)
+                            .padding(.vertical, 5)
+                        Spacer()
+                    }
+                }
+                
+                if doubleValueIsNotValid {
+                    VStack(alignment: .leading) {
+                        Text("Value not valide")
+                        
+                        if let hihi = selectedValueObject.alarmhihi {
+                            Text("HiHi: \(hihi)")
                         }
-                
-                withAnimation {
-                    mqttManager.publish(topic: selectedTopic + "/set", with: stringJSON)
-                    self.viewIsShown.toggle()
+                        
+                        if let lolo = selectedValueObject.alarmlolo {
+                            Text("LoLo: \(lolo)")
+                        }
+                    }.font(.system(size: 16))
+                        .foregroundColor(.red)
+                        .padding()
+                    
                 }
-            }, label: {
-                Text("Save")
-                    .font(.system(size: 16))
+                
+                Button(action: {
+                    guard !doubleValueIsNotValid else { return }
+                    guard let stringJSON = jsonEncoding(selectedValueObject) else {
+                        self.viewIsShown.toggle()
+                        return
+                    }
+                    
+                    withAnimation {
+                        mqttManager.publish(topic: selectedTopic + "/set", with: stringJSON)
+                        self.viewIsShown.toggle()
+                    }
+                }, label: {
+                    Text("Save")
+                        .font(.system(size: 16))
+                        .padding()
+                        .foregroundColor(.black)
+                        .frame(width: 150, height: 40)
+                        .overlay(RoundedRectangle(cornerRadius: 23)
+                            .stroke(Color.black , lineWidth: 1))
+                }).opacity(doubleValueIsNotValid ? 0.25 : 1)
+                    .disabled(doubleValueIsNotValid)
                     .padding()
-                    .foregroundColor(.black)
-                    .frame(width: 150, height: 40)
-                    .overlay(RoundedRectangle(cornerRadius: 23)
-                                .stroke(Color.black , lineWidth: 1))
-            }).opacity(doubleValueIsNotValid ? 0.25 : 1)
-                .disabled(doubleValueIsNotValid)
-                .padding()
-                .padding(.bottom)
+                    .padding(.bottom)
+            }
         }.padding(.horizontal)
             .onAppear {
-                
+                firebaseManager.getUser(handler: { model in
+                    securityCheker = model.securityLevel >= selectedValueObject.secureLevel
+                })
             }
     }
     

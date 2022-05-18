@@ -161,8 +161,8 @@ class ARCustomView: ARSCNView {
     static func createSCNBox(arItem: ARItemViewModel) -> SCNBox {
         let box: SCNBox
         //create box with chart or value view
-        if arItem.objectValue?.drawChart ??
-            arItem.objectState?.drawChart ?? false {
+        if (arItem.objectValue?.drawChart ?? false) ||
+            (arItem.objectState?.drawChart ?? false) {
             box = SCNBox(width: 0.3, height: 0.2, length: 0.01, chamferRadius: 0.5)
         } else {
             box = SCNBox(width: 0.1, height: 0.05, length: 0.01, chamferRadius: 0.5)

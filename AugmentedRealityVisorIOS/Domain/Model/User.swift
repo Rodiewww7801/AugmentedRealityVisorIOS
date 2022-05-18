@@ -14,5 +14,5 @@ struct User: Identifiable {
     var dateOfBirth: String
     var companyName: String?
     var stream: String?
-    var securityLevel: Int?
+    var securityLevel: Int
 }

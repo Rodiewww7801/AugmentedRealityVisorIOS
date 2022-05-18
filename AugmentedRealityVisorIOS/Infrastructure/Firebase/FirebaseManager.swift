@@ -47,4 +47,25 @@ class FirebaseManager: NSObject {
             completion(localURL)
         }.resume()
     }
+    
+    func getUser(handler: @escaping (User)->Void) {
+        FirebaseManager._shared.firestore.collection("usersInfo").addSnapshotListener { query, error in
+            guard let documents = query?.documents else {
+                print("[Firebase error]: storage has no document usersInfo")
+                return
+            }
+            
+            if let data = documents.first(where: { documentSnapshot in
+                documentSnapshot.data()["userUID"] as? String == FirebaseManager._shared.auth.currentUser?.uid
+            }) {
+                let model = User(id: data["userUID"] as? String ?? "nil",
+                                     firstName: data["firstName"] as? String ?? "nil",
+                                     lastName: data["lastName"] as? String ?? "nil",
+                                     dateOfBirth: data["dateOfBirth"] as? String ?? "nil",
+                                     stream: data["stream"] as? String,
+                                     securityLevel: data["securityLevel"] as? Int ?? 0)
+                handler(model)
+            }
+        }
+    }
 }
