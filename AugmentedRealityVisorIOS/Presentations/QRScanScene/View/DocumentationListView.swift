@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DocumentationListView: View {
-    //@ObservedObject var viewModel: DocumentationListViewModel
     @State var isLoading: Bool = false
     @State var pdfIsShown: Bool = false
     @State var pdfData: Data?

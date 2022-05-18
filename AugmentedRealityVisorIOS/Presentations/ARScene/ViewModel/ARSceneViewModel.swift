@@ -11,6 +11,7 @@ import SwiftUI
 import FirebaseFirestoreSwift
 
 class ARSceneViewModel: ObservableObject {
+    @Published var showEditARItem: Bool = false
     @Published var qrCode: QRCodeModel?
     @Published var documentations: [DocumentationModel] = []
     @Published var startQRScan: Bool = false
@@ -18,6 +19,13 @@ class ARSceneViewModel: ObservableObject {
     @Published var qrCodeAnchor: ARAnchor?
     @Published var arItemsViewModel: [ARItemViewModel] = []
     private let firebaseManager: FirebaseManager = FirebaseManager._shared
+    
+    @Published var showEditObjectValueView: Bool = false
+    @Published var showEditObjectStateView: Bool = false
+    @Published var selectedObjectValue: ObjectValue?
+    @Published var selectedObjectState: ObjectState?
+    @Published var selectedTopic: String?
+    var onDeleteAction: (()->Void)?
     
     //todo: concurrency
     func getDocumetationsFromFirebase(qrCodeID: String) {

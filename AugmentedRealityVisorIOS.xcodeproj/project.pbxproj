@@ -50,6 +50,8 @@
 		F88DEFF027D0C4DE00DE15E9 /* UIKit+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DEFEF27D0C4DE00DE15E9 /* UIKit+Extenstion.swift */; };
 		F88DEFF627D0C60400DE15E9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DEFF527D0C60400DE15E9 /* LoginViewModel.swift */; };
 		F88DEFF927D0C9C500DE15E9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DEFF827D0C9C500DE15E9 /* LoginView.swift */; };
+		F8902E4F283510920031E23D /* EditARItemObjectValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8902E4E283510920031E23D /* EditARItemObjectValueView.swift */; };
+		F8902E51283516770031E23D /* EditARItemObjectStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8902E50283516770031E23D /* EditARItemObjectStateView.swift */; };
 		F8904C2D27EE0D4C00E9FC24 /* MQTTAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8904C2C27EE0D4C00E9FC24 /* MQTTAppState.swift */; };
 		F8904C3027EE2A6500E9FC24 /* ObjectDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8904C2F27EE2A6500E9FC24 /* ObjectDTO.swift */; };
 		F8904C3227EE2A9B00E9FC24 /* ObjectValueDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8904C3127EE2A9B00E9FC24 /* ObjectValueDTO.swift */; };
@@ -146,6 +148,8 @@
 		F88DEFEF27D0C4DE00DE15E9 /* UIKit+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extenstion.swift"; sourceTree = "<group>"; };
 		F88DEFF527D0C60400DE15E9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F88DEFF827D0C9C500DE15E9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F8902E4E283510920031E23D /* EditARItemObjectValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditARItemObjectValueView.swift; sourceTree = "<group>"; };
+		F8902E50283516770031E23D /* EditARItemObjectStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditARItemObjectStateView.swift; sourceTree = "<group>"; };
 		F8904C2C27EE0D4C00E9FC24 /* MQTTAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTAppState.swift; sourceTree = "<group>"; };
 		F8904C2F27EE2A6500E9FC24 /* ObjectDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDTO.swift; sourceTree = "<group>"; };
 		F8904C3127EE2A9B00E9FC24 /* ObjectValueDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectValueDTO.swift; sourceTree = "<group>"; };
@@ -495,6 +499,8 @@
 			children = (
 				F8C1BC6527D00F1100DC49CC /* QRScanMainView.swift */,
 				F8F419B428292D6200BAAE1C /* DocumentationListView.swift */,
+				F8902E4E283510920031E23D /* EditARItemObjectValueView.swift */,
+				F8902E50283516770031E23D /* EditARItemObjectStateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -908,6 +914,7 @@
 				F87E3CCC2814B43200935A8C /* ObjectState.swift in Sources */,
 				F8E6308927B5BC2000EC8C87 /* APIEndpoints.swift in Sources */,
 				F80FB8562809C2C400B54D3C /* Array+Extension.swift in Sources */,
+				F8902E51283516770031E23D /* EditARItemObjectStateView.swift in Sources */,
 				F8974AD327C66766000674DC /* View+Extensions.swift in Sources */,
 				F8E6EA472821300F00F91E3C /* ItemsListSceneFactory.swift in Sources */,
 				F8E6EA4328212B1400F91E3C /* ItemValueCell.swift in Sources */,
@@ -931,6 +938,7 @@
 				F84B86B72822BFD4000C87E0 /* ARItemObjectValueView.swift in Sources */,
 				F8DC626C282C7619006D19C2 /* FirebaseManager.swift in Sources */,
 				F8904C3227EE2A9B00E9FC24 /* ObjectValueDTO.swift in Sources */,
+				F8902E4F283510920031E23D /* EditARItemObjectValueView.swift in Sources */,
 				F8126A832814609E00652000 /* NotificationDelegate.swift in Sources */,
 				F8F61243282FEB1D007644AB /* QRCodeModel.swift in Sources */,
 				F8F61245282FEB96007644AB /* ARItemModel.swift in Sources */,

@@ -1,22 +1,20 @@
 //
-//  EditObjectStateView.swift
+//  EditARItemObjectStateView.swift
 //  AugmentedRealityVisorIOS
 //
-//  Created by Rodion Hladchenko on 24.04.2022.
+//  Created by Rodion Hladchenko on 18.05.2022.
 //
 
 import SwiftUI
 
-import SwiftUI
-import Alamofire
-
-struct EditObjectStateView: View {
+struct EditARItemObjectStateView: View {
     var selectedValueObject: ObjectState
     var selectedTopic: String
     var mqttManager: MQTTManager = MQTTManager.shared()
     var pickerStates = [false, true]
     @State var objectState: Bool = false
     @Binding var viewIsShown: Bool
+    var onDeleteAction: (()->Void)?
     
     var body: some View {
         VStack {
@@ -69,7 +67,22 @@ struct EditObjectStateView: View {
                     .overlay(RoundedRectangle(cornerRadius: 23)
                                 .stroke(Color.black , lineWidth: 1))
             })
-                .padding()
+            .padding()
+            
+            Button(action: {
+                onDeleteAction?()
+                withAnimation {
+                    self.viewIsShown.toggle()
+                }
+            }, label: {
+                Text("Delete")
+                    .font(.system(size: 16))
+                    .padding()
+                    .foregroundColor(.white)
+                    .frame(width: 150, height: 40)
+                    .background(RoundedRectangle(cornerRadius: 23)
+                        .foregroundColor(.red))
+            })
                 .padding(.bottom)
         }.padding(.horizontal)
             .onAppear {
@@ -91,4 +104,3 @@ struct EditObjectStateView: View {
         return nil
     }
 }
-

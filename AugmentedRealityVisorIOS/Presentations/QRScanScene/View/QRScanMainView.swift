@@ -14,6 +14,7 @@ struct QRScanMainView: View {
     private let chevronButtonSize: CGFloat = 35
     @State private var isMenuOpen: Bool = false
     @State private var documentationViewIsOpen: Bool = false
+    @State private var dismissBottomSheetView: Bool = false
     @StateObject var arSceneViewModel: ARSceneViewModel
     @StateObject var documentationViewModel: DocumentationListViewModel
     
@@ -85,6 +86,21 @@ struct QRScanMainView: View {
             }.frame(maxHeight: .infinity, alignment: .bottom)
                 .padding()
             
+            if arSceneViewModel.showEditObjectValueView,
+               let topic = arSceneViewModel.selectedTopic,
+               let selectedObject = arSceneViewModel.selectedObjectValue {
+                BottomSheetView(showBottomSheetView: $arSceneViewModel.showEditObjectValueView, dismissBottomSheetView: $dismissBottomSheetView) {
+                    EditARItemObjectValueView(selectedValueObject: selectedObject, selectedTopic: topic, viewIsShown: $arSceneViewModel.showEditObjectValueView, onDeleteAction: arSceneViewModel.onDeleteAction)
+                }
+            }
+            
+            if arSceneViewModel.showEditObjectStateView,
+               let topic = arSceneViewModel.selectedTopic,
+               let selectedObject = arSceneViewModel.selectedObjectState {
+                BottomSheetView(showBottomSheetView: $arSceneViewModel.showEditObjectStateView, dismissBottomSheetView: $dismissBottomSheetView) {
+                    EditARItemObjectStateView(selectedValueObject: selectedObject, selectedTopic: topic, viewIsShown: $arSceneViewModel.showEditObjectStateView, onDeleteAction: arSceneViewModel.onDeleteAction)
+                }
+            }
         }.sheet(isPresented: $isMenuOpen) {
             itemsListView()
         }.sheet(isPresented: $documentationViewIsOpen, content: {

@@ -1,21 +1,21 @@
 //
-//  EditObjectValueView.swift
+//  EditARItemObjectValueView.swift
 //  AugmentedRealityVisorIOS
 //
-//  Created by Rodion Hladchenko on 22.04.2022.
+//  Created by Rodion Hladchenko on 18.05.2022.
 //
 
 import SwiftUI
-import Alamofire
 
-struct EditObjectValueView: View {
-     var selectedValueObject: ObjectValue
-     var selectedTopic: String
-     var mqttManager: MQTTManager = MQTTManager.shared()
+struct EditARItemObjectValueView: View {
+    var selectedValueObject: ObjectValue
+    var selectedTopic: String
+    var mqttManager: MQTTManager = MQTTManager.shared()
     @State var doubleValueIsNotValid: Bool = false
     @State var stringValue: String = ""
     @State var doubleValue: Double = 0.0
     @Binding var viewIsShown: Bool
+    var onDeleteAction: (()->Void)?
     
     var body: some View {
         VStack {
@@ -34,10 +34,10 @@ struct EditObjectValueView: View {
                         stringValue = $0
                         doubleValue =  alarmValidation( Double($0) ?? 0)
                     }))
-                        .keyboardType(.decimalPad)
-                        .font(.system(size: 16, weight: .regular))
-                        .padding(.leading)
-                        .padding(.vertical, 5)
+                    .keyboardType(.decimalPad)
+                    .font(.system(size: 16, weight: .regular))
+                    .padding(.leading)
+                    .padding(.vertical, 5)
                 }.background(RoundedRectangle(cornerRadius: 23).foregroundColor(.gray.opacity(0.1)))
             }
             
@@ -72,9 +72,9 @@ struct EditObjectValueView: View {
             Button(action: {
                 guard !doubleValueIsNotValid else { return }
                 guard let stringJSON = jsonEncoding(selectedValueObject) else {
-                            self.viewIsShown.toggle()
-                            return
-                        }
+                    self.viewIsShown.toggle()
+                    return
+                }
                 
                 withAnimation {
                     mqttManager.publish(topic: selectedTopic + "/set", with: stringJSON)
@@ -87,15 +87,27 @@ struct EditObjectValueView: View {
                     .foregroundColor(.black)
                     .frame(width: 150, height: 40)
                     .overlay(RoundedRectangle(cornerRadius: 23)
-                                .stroke(Color.black , lineWidth: 1))
+                        .stroke(Color.black , lineWidth: 1))
             }).opacity(doubleValueIsNotValid ? 0.25 : 1)
                 .disabled(doubleValueIsNotValid)
                 .padding()
+            
+            Button(action: {
+                onDeleteAction?()
+                withAnimation {
+                    self.viewIsShown.toggle()
+                }
+            }, label: {
+                Text("Delete")
+                    .font(.system(size: 16))
+                    .padding()
+                    .foregroundColor(.white)
+                    .frame(width: 150, height: 40)
+                    .background(RoundedRectangle(cornerRadius: 23)
+                        .foregroundColor(.red))
+            })
                 .padding(.bottom)
         }.padding(.horizontal)
-            .onAppear {
-                
-            }
     }
     
     func jsonEncoding(_ objectValue: ObjectValue) -> String? {

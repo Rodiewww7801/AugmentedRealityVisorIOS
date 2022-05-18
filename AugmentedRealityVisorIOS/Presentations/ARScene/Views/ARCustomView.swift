@@ -73,16 +73,48 @@ class ARCustomView: ARSCNView {
     }
     
     @objc private func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        if arSceneViewModel.showEditObjectValueView ||
+            arSceneViewModel.showEditObjectStateView {
+            return
+        }
+        
         let notifyGenerator = UINotificationFeedbackGenerator()
         let location = recognizer.location(in: self)
         
         if let hitTest = self.hitTest(location, options: [:]).first {
             let selectedNode = hitTest.node
-            arSceneViewModel.arItemsViewModel.removeAll(where: {
-                $0.arItem?.id == selectedNode.name
-            })
-            arSceneViewModel.removeARItemFromFirebase(node: selectedNode)
-            selectedNode.removeFromParentNode()
+//            arSceneViewModel.arItemsViewModel.removeAll(where: {
+//                $0.arItem?.id == selectedNode.name
+//            })
+            //arSceneViewModel.removeARItemFromFirebase(node: selectedNode)
+            //selectedNode.removeFromParentNode()
+            
+            let selectedItem = arSceneViewModel.arItemsViewModel.first(where: { $0.arItem?.id == selectedNode.name})
+            
+            if let objectValue = selectedItem?.objectValue {
+                arSceneViewModel.selectedObjectValue = objectValue
+                arSceneViewModel.selectedTopic = selectedItem?.topic
+                arSceneViewModel.showEditObjectValueView = true
+                arSceneViewModel.onDeleteAction = { [weak self] in
+                    self?.arSceneViewModel.arItemsViewModel.removeAll(where: {
+                        $0.arItem?.id == selectedNode.name
+                    })
+                    self?.arSceneViewModel.removeARItemFromFirebase(node: selectedNode)
+                    selectedNode.removeFromParentNode()
+                }
+            } else if let objectState = selectedItem?.objectState {
+                arSceneViewModel.selectedObjectState = objectState
+                arSceneViewModel.selectedTopic = selectedItem?.topic
+                arSceneViewModel.showEditObjectStateView = true
+                arSceneViewModel.onDeleteAction = { [weak self] in
+                    self?.arSceneViewModel.arItemsViewModel.removeAll(where: {
+                        $0.arItem?.id == selectedNode.name
+                    })
+                    self?.arSceneViewModel.removeARItemFromFirebase(node: selectedNode)
+                    selectedNode.removeFromParentNode()
+                }
+            }
+            
             notifyGenerator.notificationOccurred(.success)
         }
     }
